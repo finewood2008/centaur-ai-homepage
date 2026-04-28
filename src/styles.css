@@ -947,181 +947,206 @@ img {
   line-height: 1.65;
 }
 
-.landing-showcase {
+.scenarios-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.82fr);
+  grid-template-columns: 1fr 1fr;
   gap: 22px;
   align-items: stretch;
 }
 
-.landing-primary-card,
-.landing-custom-card {
+.scenario-card {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
+  padding: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   background: rgba(10, 14, 21, 0.88);
   box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.landing-primary-card {
-  min-height: 520px;
-  padding: 32px;
+.scenario-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.scenario-card.revenue {
   background:
-    radial-gradient(circle at 78% 18%, rgba(245, 165, 36, 0.24), transparent 18rem),
-    radial-gradient(circle at 18% 82%, rgba(24, 199, 223, 0.12), transparent 15rem),
-    linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at 82% 8%, rgba(245, 165, 36, 0.28), transparent 20rem),
+    radial-gradient(circle at 18% 88%, rgba(24, 199, 223, 0.10), transparent 14rem),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
     #0b1018;
+  border-color: rgba(245, 165, 36, 0.18);
 }
 
-.landing-primary-card::after {
-  content: "";
+.scenario-card.cost {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(24, 199, 223, 0.16), transparent 20rem),
+    radial-gradient(circle at 18% 88%, rgba(245, 165, 36, 0.08), transparent 14rem),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+    #0b1018;
+  border-color: rgba(24, 199, 223, 0.14);
+}
+
+.scenario-prime {
   position: absolute;
-  right: -120px;
-  bottom: -150px;
-  width: 360px;
-  height: 360px;
-  border: 1px solid rgba(245, 165, 36, 0.24);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 165, 36, 0.16), transparent 62%);
-  pointer-events: none;
+  top: 16px;
+  right: -34px;
+  width: 140px;
+  padding: 6px 0;
+  background: linear-gradient(135deg, #ffb63d, #f08a18);
+  color: #090b10;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(38deg);
+  box-shadow: 0 2px 12px rgba(245, 165, 36, 0.3);
 }
 
-.landing-card-head {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 26px;
-}
-
-.landing-card-head strong {
-  max-width: 360px;
-  color: #fff8e9;
-  font-size: clamp(28px, 3.2vw, 44px);
-  font-weight: 950;
-  letter-spacing: -0.05em;
-  line-height: 1.05;
-  text-align: right;
-}
-
-.landing-badge {
+.scenario-badge {
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid rgba(245, 165, 36, 0.28);
+  gap: 6px;
+  padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(245, 165, 36, 0.11);
-  color: #ffd892;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin-bottom: 22px;
 }
 
-.landing-badge.muted {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.07);
-  color: #cbd7e8;
+.revenue-badge {
+  border: 1px solid rgba(245, 165, 36, 0.35);
+  background: rgba(245, 165, 36, 0.14);
+  color: #ffd892;
 }
 
-.marketing-list {
-  position: relative;
-  z-index: 1;
+.cost-badge {
+  border: 1px solid rgba(24, 199, 223, 0.35);
+  background: rgba(24, 199, 223, 0.12);
+  color: #a0ecff;
+}
+
+.scenario-card h3 {
+  margin: 0;
+  color: #f6f9ff;
+  font-size: clamp(24px, 2.6vw, 34px);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.scenario-desc {
+  margin: 12px 0 22px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.scenario-features {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  flex: 1;
 }
 
-.marketing-item {
+.scenario-feature {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 15px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.055);
-  color: #eef5ff;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #e2ebf6;
+  font-size: 14px;
   font-weight: 850;
-  line-height: 1.45;
+  line-height: 1.4;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.marketing-item svg {
+.scenario-card.revenue .scenario-feature:hover {
+  border-color: rgba(245, 165, 36, 0.28);
+  background: rgba(245, 165, 36, 0.07);
+}
+
+.scenario-card.cost .scenario-feature:hover {
+  border-color: rgba(24, 199, 223, 0.22);
+  background: rgba(24, 199, 223, 0.06);
+}
+
+.scenario-feature svg {
   flex: 0 0 auto;
   margin-top: 2px;
   color: var(--gold);
 }
 
-.landing-proof {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  padding: 13px 15px;
-  border: 1px solid rgba(80, 220, 160, 0.25);
-  border-radius: 14px;
-  background: rgba(80, 220, 160, 0.09);
-  color: #c9ffe8;
-  font-weight: 900;
+.scenario-card.cost .scenario-feature svg {
+  color: var(--cyan);
 }
 
-.landing-proof svg {
-  color: var(--green);
-}
-
-.landing-custom-card {
-  display: flex;
-  flex-direction: column;
-  padding: 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
-    #0d131d;
-}
-
-.landing-custom-card h3 {
-  margin: 28px 0 10px;
-  color: #f6f9ff;
-  font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-}
-
-.landing-custom-card p {
-  margin: 0 0 22px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.agent-list {
+.scenario-agents {
   display: grid;
-  gap: 10px;
-  margin-top: auto;
+  gap: 0;
+  flex: 1;
+  align-content: start;
 }
 
-.agent-row {
+.scenario-agent {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  padding: 13px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.agent-row strong {
+.scenario-agent:first-of-type {
+  padding-top: 0;
+}
+
+.scenario-agent:last-of-type {
+  border-bottom: none;
+}
+
+.scenario-agent strong {
   color: #fff4df;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.agent-row span {
-  color: #c8d4e5;
-  font-size: 14px;
+.scenario-agent span {
+  color: #b7c5da;
+  font-size: 13px;
   line-height: 1.5;
+}
+
+.scenario-foot {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.scenario-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(245, 165, 36, 0.25);
+  border-radius: 999px;
+  background: rgba(245, 165, 36, 0.09);
+  color: #ffd892;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.scenario-label.muted {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  color: #cbd7e8;
 }
 
 .comparison-table {
@@ -1296,7 +1321,7 @@ footer p {
 
 @media (max-width: 1080px) {
   .hero-inner,
-  .landing-showcase,
+  .scenarios-grid,
   .cta-card,
   .os-shell {
     grid-template-columns: 1fr;
@@ -1438,7 +1463,7 @@ footer p {
   .hardware-grid,
   .why-panel,
   .role-grid,
-  .landing-showcase,
+  .scenarios-grid,
   .delivery-track,
   .os-feature-grid {
     grid-template-columns: 1fr;
@@ -1532,16 +1557,12 @@ footer p {
     min-height: 285px;
   }
 
-  .landing-card-head {
-    flex-direction: column;
+  .scenario-card {
+    min-height: auto;
+    padding: 26px;
   }
 
-  .landing-card-head strong {
-    max-width: none;
-    text-align: left;
-  }
-
-  .agent-row {
+  .scenario-agent {
     grid-template-columns: 1fr;
     gap: 5px;
     align-items: flex-start;

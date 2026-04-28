@@ -18,6 +18,8 @@ import {
   ShieldCheck,
   Sparkles,
   Table2,
+  TrendingUp,
+  TrendingDown,
   Wrench,
 } from 'lucide-react';
 import React from 'react';
@@ -435,37 +437,49 @@ function Roles() {
 function TaxScenario() {
   return (
     <section className="section landing-section" id="finance">
-      <SectionHeader eyebrow="Scenario" title="首发场景：" highlight="AI 营销获客工作站" align="center">
-        一台设备，就是一个 AI 营销团队。
+      <SectionHeader eyebrow="Scenario" title="开源" highlight="× 节流" align="center">
+        AI 营销获客帮企业赚钱，AI 数字员工帮企业省钱
       </SectionHeader>
 
-      <div className="landing-showcase">
-        <article className="landing-primary-card">
-          <div className="landing-card-head">
-            <span className="landing-badge">标准产品 · 即买即用</span>
-            <strong>帮企业每天多一个销售入口</strong>
+      <div className="scenarios-grid">
+        <article className="scenario-card revenue">
+          <div className="scenario-prime">首发</div>
+          <div className="scenario-badge revenue-badge">
+            <TrendingUp size={15} />
+            开源线
           </div>
-          <div className="marketing-list">
+          <h3>AI 营销获客工作站</h3>
+          <p className="scenario-desc">一台设备就是一个 AI 营销团队。</p>
+          <div className="scenario-features">
             {marketingFeatures.map((item) => (
-              <div className="marketing-item" key={item}>
-                <Check size={17} />
+              <div className="scenario-feature" key={item}>
+                <Check size={14} />
                 <span>{item}</span>
               </div>
             ))}
           </div>
+          <div className="scenario-foot">
+            <span className="scenario-label">标准产品 · 即买即用</span>
+          </div>
         </article>
 
-        <article className="landing-custom-card">
-          <span className="landing-badge muted">定制层 · 按行业扩展</span>
+        <article className="scenario-card cost">
+          <div className="scenario-badge cost-badge">
+            <TrendingDown size={15} />
+            节流线
+          </div>
           <h3>AI 数字员工工作站</h3>
-          <p>同一个硬件，同一个 CentaurOS，换一套行业 Agent 包。</p>
-          <div className="agent-list">
+          <p className="scenario-desc">同一个硬件，同一套 OS，换一套行业 Agent 包。</p>
+          <div className="scenario-agents">
             {customAgents.map(([role, job]) => (
-              <div className="agent-row" key={role}>
+              <div className="scenario-agent" key={role}>
                 <strong>{role}</strong>
                 <span>{job}</span>
               </div>
             ))}
+          </div>
+          <div className="scenario-foot">
+            <span className="scenario-label muted">按需定制</span>
           </div>
         </article>
       </div>
