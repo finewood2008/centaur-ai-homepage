@@ -101,7 +101,21 @@ const capabilities = [
   },
 ];
 
-const landingScenarios = ['资料归档', '客户跟进', '票据初审', '缺失提醒', '老板日报', '过程留痕'];
+const marketingFeatures = [
+  'AI 内容工厂：批量生成文案、图片、短视频',
+  '全渠道获客：多平台自动发布 + 线索捕获',
+  '客户洞察：AI 分析画像，精准拓客',
+  '销售辅助：话术生成、跟进策略、智能 CRM',
+  'GEO 优化：让企业在 AI 搜索中被推荐',
+];
+
+const customAgents = [
+  ['财税智能体', '自动对账、报税、发票处理'],
+  ['外贸跟单员', '自动写开发信、跟进客户'],
+  ['客服机器人', '7×24 在线响应'],
+  ['内容运营专员', '自动生产与分发内容'],
+  ['更多岗位', '按需定制'],
+];
 
 const saasRows = [
   ['交付对象', '软件功能', 'AI 员工'],
@@ -420,48 +434,44 @@ function Roles() {
 
 function TaxScenario() {
   return (
-    <section className="section tax-section" id="finance">
-      <div className="tax-layout">
-        <div>
-          <SectionHeader eyebrow="Case" title="首批落地：" highlight="财税行业">
-            高频资料、客户跟进、风险提醒，已经跑通。
-          </SectionHeader>
-          <div className="scenario-grid">
-            {landingScenarios.map((item) => (
-              <div className="scenario-item" key={item}>
-                <Check size={16} />
-                {item}
+    <section className="section landing-section" id="finance">
+      <SectionHeader eyebrow="Scenario" title="首发场景：" highlight="AI 营销获客工作站" align="center">
+        一台设备，就是一个 AI 营销团队。
+      </SectionHeader>
+
+      <div className="landing-showcase">
+        <article className="landing-primary-card">
+          <div className="landing-card-head">
+            <span className="landing-badge">标准产品 · 即买即用</span>
+            <strong>帮企业每天多一个销售入口</strong>
+          </div>
+          <div className="marketing-list">
+            {marketingFeatures.map((item) => (
+              <div className="marketing-item" key={item}>
+                <Check size={17} />
+                <span>{item}</span>
               </div>
             ))}
           </div>
-        </div>
-        <div className="office-scene" aria-label="财税行业落地案例和资料流动示意">
-          <div className="scene-top">
-            <div>
-              <span>首批行业样板</span>
-              <strong>财税场景已落地</strong>
-            </div>
-            <ShieldCheck size={24} />
+          <div className="landing-proof">
+            <Sparkles size={18} />
+            已与 8 亿营收广告集团达成合作意向
           </div>
-          <div className="scene-body">
-            <div className="file-stack">
-              <span>资料</span>
-              <span>合同</span>
-              <span>Excel</span>
-              <span>客户沟通</span>
-            </div>
-            <div className="data-stream">
-              <i />
-              <i />
-              <i />
-            </div>
-            <img src={`${A}centaur-edge.png`} alt="财税行业中的半人马 AI 数字员工主机" />
+        </article>
+
+        <article className="landing-custom-card">
+          <span className="landing-badge muted">定制层 · 按行业扩展</span>
+          <h3>AI 数字员工工作站</h3>
+          <p>同一个硬件，同一个 CentaurOS，换一套行业 Agent 包。</p>
+          <div className="agent-list">
+            {customAgents.map(([role, job]) => (
+              <div className="agent-row" key={role}>
+                <strong>{role}</strong>
+                <span>{job}</span>
+              </div>
+            ))}
           </div>
-          <div className="scene-footer">
-            <div><Sparkles size={16} />资料流自动处理</div>
-            <div><AlertTriangle size={16} />关键事项人工确认</div>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
   );
