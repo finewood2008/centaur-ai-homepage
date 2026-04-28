@@ -50,10 +50,10 @@ const centaurOsFeatures = [
 ];
 
 const painPoints = [
-  ['只会聊天', '问完还要人复制、整理、执行。', MessageSquareText],
-  ['接不进流程', '资料、系统、消息各自分散。', FileStack],
-  ['过程不可管', '做了什么、凭什么做，很难追踪。', AlertTriangle],
-  ['数据不放心', '客户资料和经营数据不适合裸奔上云。', LockKeyhole],
+  ['会说', '不会做', '能回答问题，但不能稳定接任务、跑流程。', MessageSquareText],
+  ['有工具', '没入口', '资料、消息、系统分散，AI 接不进真实工作。', FileStack],
+  ['能执行', '难管理', '过程、依据、权限、确认节点都缺少统一管理。', AlertTriangle],
+  ['想上云', '不放心', '客户资料和经营数据，需要本地优先。', LockKeyhole],
 ];
 
 const inputs = [
@@ -306,17 +306,35 @@ function CentaurOS() {
 function Problems() {
   return (
     <section className="section problem-section">
-      <SectionHeader eyebrow="Why" title="AI 卡在" highlight="聊天框" align="center">
-        因为多数 AI 还没有进入业务流程。
-      </SectionHeader>
-      <div className="problem-grid">
-        {painPoints.map(([title, text, Icon]) => (
-          <article className="problem-card" key={title}>
-            <Icon size={22} />
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </article>
-        ))}
+      <div className="why-panel">
+        <div className="why-copy">
+          <span className="eyebrow">Why Centaur AI</span>
+          <h2>
+            AI 不缺能力，<em>缺入口</em>
+          </h2>
+          <p>
+            企业真正需要的不是更多聊天框，而是一个能把 AI 接进流程、权限和数据里的本地底座。
+          </p>
+        </div>
+
+        <div className="why-list">
+          {painPoints.map(([before, after, text, Icon], index) => (
+            <article className="why-row" key={before}>
+              <div className="why-index">0{index + 1}</div>
+              <div className="why-icon">
+                <Icon size={20} />
+              </div>
+              <div className="why-text">
+                <h3>
+                  <span>{before}</span>
+                  <ArrowRight size={16} />
+                  <em>{after}</em>
+                </h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
