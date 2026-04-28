@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import React from 'react';
 
-const A = '/brand-assets/';
+const A = `${import.meta.env.BASE_URL}brand-assets/`;
 
 const tags = ['硬件 + OS', '自研底座', '本地部署', '岗位交付'];
 
