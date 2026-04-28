@@ -1,145 +1,84 @@
 import {
-  AlertTriangle,
+  ArrowDown,
   ArrowRight,
-  Bot,
-  BrainCircuit,
   BriefcaseBusiness,
-  Check,
-  CircleCheck,
-  ClipboardCheck,
   Cpu,
-  FileCheck2,
-  FileStack,
-  FolderArchive,
-  LockKeyhole,
-  MessageSquareText,
-  Network,
-  ReceiptText,
+  Factory,
+  Handshake,
+  Layers3,
+  Mail,
+  Rocket,
   ShieldCheck,
   Sparkles,
-  Table2,
-  Wrench,
+  TrendingUp,
+  Users,
 } from 'lucide-react';
 import React from 'react';
 
 const A = `${import.meta.env.BASE_URL}brand-assets/`;
 
-const tags = ['硬件 + OS', '自研底座', '本地部署', '岗位交付'];
-
-const centaurOsFeatures = [
+const valueCards = [
   {
-    title: '本地记忆库',
-    text: '资料、客户、规则、任务记录，全部留在企业本地。',
-    icon: BrainCircuit,
+    icon: TrendingUp,
+    eyebrow: '标准版 · 即买即用',
+    title: 'AI营销获客工作站',
+    highlight: '帮你赚钱',
+    text: ['标准产品，即买即用。', '一台机器就是一个 AI 营销团队：AI 内容生产、全渠道获客、客户洞察、销售辅助。', '让企业每天多一个销售入口。'],
+    tags: ['标准版', '即买即用'],
   },
   {
-    title: '通用 IM 接口',
-    text: '接入企微、飞书、钉钉，让任务从原有聊天入口进入。',
-    icon: MessageSquareText,
-  },
-  {
-    title: 'Agent 兼容层',
-    text: '兼容 OpenClaw、Hermes、DeerFlow 等主流 Agent 引擎。',
-    icon: Network,
-  },
-  {
-    title: '员工 Builder',
-    text: '基于 OS 能力，封装岗位、工具、权限和流程。',
-    icon: Wrench,
+    icon: ArrowDown,
+    eyebrow: '定制版 · 按需交付',
+    title: 'AI数字员工定制工作站',
+    highlight: '帮你省钱',
+    text: ['按行业定制，按需交付。', '替代一个真实岗位的人工成本：财税智能体、外贸跟单员、客服机器人、内容运营专员。', '让企业少养一个人，多一个机器员工。'],
+    tags: ['定制版', '按需交付'],
   },
 ];
 
-const painPoints = [
-  ['只会聊天', '问完还要人复制、整理、执行。', MessageSquareText],
-  ['接不进流程', '资料、系统、消息各自分散。', FileStack],
-  ['过程不可管', '做了什么、凭什么做，很难追踪。', AlertTriangle],
-  ['数据不放心', '客户资料和经营数据不适合裸奔上云。', LockKeyhole],
-];
-
-const inputs = [
-  ['企微', MessageSquareText],
-  ['飞书', BriefcaseBusiness],
-  ['本地文件', FolderArchive],
-  ['Excel', Table2],
-  ['合同', FileCheck2],
-  ['业务系统', ReceiptText],
-];
-
-const processing = ['理解任务', '读取记忆', '调用工具', '执行流程', '等待确认', '留下记录'];
-const outputs = ['自动处理', '主动提醒', '异常上报', '结果留痕'];
-
-const capabilities = [
+const architecture = [
   {
-    title: '任务引擎',
-    icon: Bot,
-    text: '把一句话变成可执行步骤。',
-    sample: '已拆解 3 步 / 1 项待确认',
+    layer: '应用层',
+    title: 'AI营销获客 · AI财税 · AI外贸',
+    desc: '跑在上面的场景，按需配置',
+    point: '赚钱靠这一层',
+    icon: Rocket,
   },
   {
-    title: '企业记忆',
-    icon: FileStack,
-    text: '记住资料、客户、规则和历史任务。',
-    sample: '已匹配客户档案 / 规则命中',
+    layer: 'CentaurOS',
+    title: 'QeeClaw 底座 + AI Agent 框架',
+    desc: '软硬件深度整合的 AI 操作系统',
+    point: '护城河靠这一层',
+    icon: Cpu,
+    featured: true,
   },
   {
-    title: '工具连接',
-    icon: Sparkles,
-    text: '连接消息、文件、表格和业务系统。',
-    sample: '已读取文件 / 已生成待发送消息',
-  },
-  {
-    title: '人工确认',
-    icon: ShieldCheck,
-    text: '关键动作先确认，再执行。',
-    sample: '高风险动作 / 等待主管确认',
-  },
-  {
-    title: '岗位封装',
-    icon: ClipboardCheck,
-    text: '把能力封装成一个个 AI 员工。',
-    sample: '资料整理员 / 跟进员 / 日报员',
+    layer: '硬件平台',
+    title: '统一设计 · 插电即用',
+    desc: '自有工厂 · 稳定交付',
+    point: '差异化靠这一层',
+    icon: Factory,
   },
 ];
 
-const landingScenarios = ['资料归档', '客户跟进', '票据初审', '缺失提醒', '老板日报', '过程留痕'];
-
-const saasRows = [
-  ['交付对象', '软件功能', 'AI 员工'],
-  ['使用方式', '人登录系统', 'AI 接任务'],
-  ['数据位置', '云端为主', '本地优先'],
-  ['工作入口', '菜单操作', '现有流程'],
-  ['管理方式', '看结果', '看过程 + 证据'],
+const team = [
+  ['产品与 AI 工程', '负责 Agent 框架、工作流与企业场景封装。'],
+  ['硬件与供应链', '负责工作站设计、生产、交付与稳定运行。'],
+  ['行业交付团队', '把 AI 能力落到营销、财税、外贸等真实岗位。'],
 ];
 
-const delivery = ['选一个岗位', '接入资料源', '连接工具', '跑通流程', '人工确认', '持续优化'];
-
-function SectionHeader({ eyebrow, title, highlight, suffix = '', children, align = 'left' }) {
-  return (
-    <div className={`section-header ${align === 'center' ? 'center' : ''}`}>
-      <span className="eyebrow">{eyebrow}</span>
-      <h2>
-        <span>{title}</span>
-        {highlight && <em>{highlight}</em>}
-        {suffix && <span>{suffix}</span>}
-      </h2>
-      {children && <p>{children}</p>}
-    </div>
-  );
-}
+const partners = ['硬件制造', '渠道代理', '行业服务商', '投资机构'];
 
 function App() {
   return (
     <main className="site-shell">
       <Hero />
-      <Hardware />
-      <CentaurOS />
-      <Problems />
-      <Workflow />
-      <Roles />
-      <TaxScenario />
-      <Comparison />
-      <Delivery />
-      <FinalCta />
+      <Category />
+      <Values />
+      <Architecture />
+      <Team />
+      <Partners />
+      <Footer />
     </main>
   );
 }
@@ -147,66 +86,51 @@ function App() {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero-bg" />
       <nav className="nav">
         <a className="brand" href="#top" aria-label="半人马 AI 首页">
-          <img src={`${A}centaur-logo.png`} alt="半人马 AI 官方 Logo" />
+          <img src={`${A}centaur-logo.png`} alt="半人马 AI Logo" />
           <span>
             <strong>半人马 AI</strong>
             <small>Centaur AI</small>
           </span>
         </a>
         <div className="nav-links">
-          <a href="#hardware">硬件</a>
-          <a href="#centaur-os">Centaur OS</a>
-          <a href="#workflow">如何工作</a>
-          <a href="#roles">核心能力</a>
-          <a href="#finance">落地案例</a>
+          <a href="#category">新品类</a>
+          <a href="#values">产品</a>
+          <a href="#architecture">架构</a>
+          <a href="#team">团队</a>
+          <a href="#contact">联系</a>
         </div>
-        <a className="nav-cta" href="#demo">预约演示</a>
+        <a className="nav-cta" href="#contact">联系我们</a>
       </nav>
 
       <div className="hero-inner">
         <div className="hero-copy">
-          <div className="hero-kicker">
-            <span className="line" />
-            硬件 + Centaur OS 一体化输出
-          </div>
-          <h1>
-            AI 员工，<em>上岗干活</em>
-          </h1>
+          <span className="eyebrow">AI Agent Workstation</span>
+          <h1>把 <em>AI Agent</em> 装进一台工作站</h1>
           <p className="hero-lead">
-            我们交付一台本地 AI 数字员工主机，内置自研 Centaur OS。
-          </p>
-          <p className="hero-sublead">
-            从企业记忆、IM 接入、Agent 引擎到数字员工 Builder，一套系统完成。
+            插电即用。不开电脑，不配服务器，不养 AI 团队。
+            <br />
+            一台工作站就是一个企业的 AI 生产力中心。
           </p>
           <div className="hero-actions">
-            <a className="btn primary" href="#demo">
-              预约演示 <ArrowRight size={18} />
+            <a className="btn primary" href="#values">
+              了解产品 <ArrowRight size={18} />
             </a>
-            <a className="btn secondary" href="#workflow">
-              看它如何工作
-            </a>
-          </div>
-          <div className="tag-row">
-            {tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
+            <a className="btn secondary" href="#contact">联系我们</a>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="半人马 AI 数字员工工作流主视觉">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <img className="hero-centaur" src={`${A}centaur-hero.png`} alt="半人马 AI 官方半人马形象" />
-          <div className="carbon-silicon carbon">
-            <span>人类主管</span>
-            判断 / 沟通 / 负责
+        <div className="hero-product" aria-label="AI Agent 工作站产品图">
+          <div className="product-glow" />
+          <img src={`${A}centaur-pro.png`} alt="半人马 AI Agent 工作站" />
+          <div className="product-badge top">
+            <Cpu size={17} />
+            内置 CentaurOS
           </div>
-          <div className="carbon-silicon silicon">
-            <span>AI 员工</span>
-            记忆 / 识别 / 执行
+          <div className="product-badge bottom">
+            <Sparkles size={17} />
+            插电即用
           </div>
         </div>
       </div>
@@ -214,105 +138,90 @@ function Hero() {
   );
 }
 
-function Hardware() {
+function Category() {
   return (
-    <section className="section hardware-section" id="hardware">
-      <SectionHeader eyebrow="Hardware" title="两台设备，" highlight="一套 OS">
-        硬件负责本地运行，Centaur OS 负责数字员工上岗。
-      </SectionHeader>
-      <div className="hardware-grid">
-        <article className="hardware-card edge">
-          <div className="hardware-copy">
-            <span className="product-tag">单人版</span>
-            <h3>CentaurAI Edge</h3>
-            <p>适合老板、主管或单个岗位先用起来。</p>
-            <ul>
-              <li><Check size={16} />单个 AI 员工上岗</li>
-              <li><Check size={16} />本地资料接入</li>
-              <li><Check size={16} />任务记录与留痕</li>
-            </ul>
-          </div>
-          <img src={`${A}centaur-edge.png`} alt="CentaurAI Edge 单人版设备" />
-        </article>
-
-        <article className="hardware-card pro">
-          <div className="hardware-copy">
-            <span className="product-tag">团队版</span>
-            <h3>CentaurAI Pro</h3>
-            <p>适合团队部署多名 AI 员工，接入更多流程。</p>
-            <ul>
-              <li><Check size={16} />多 AI 岗位协同</li>
-              <li><Check size={16} />工具调用与流程编排</li>
-              <li><Check size={16} />权限确认与审计记录</li>
-            </ul>
-          </div>
-          <img src={`${A}centaur-pro.png`} alt="CentaurAI Pro 团队版设备" />
-        </article>
-      </div>
+    <section className="section category" id="category">
+      <span className="eyebrow center">一个新品类</span>
+      <h2>
+        企业需要一台 <em>AI Agent 工作站</em>
+      </h2>
+      <p className="big-copy">
+        以前，设计师用设计工作站，影视人用剪辑工作站。
+        <br />
+        现在，每个企业都需要一个 AI Agent 工作站。
+      </p>
+      <p className="muted-copy">
+        中小企业不需要懂模型、不需要买服务器、不需要招 AI 团队。
+        他们只需要一台插电即用的设备，就能拥有真正落地的 AI 生产力。
+      </p>
     </section>
   );
 }
 
-function CentaurOS() {
+function Values() {
   return (
-    <section className="section os-section" id="centaur-os">
-      <div className="os-shell">
-        <div className="os-copy">
-          <span className="eyebrow">Centaur OS</span>
-          <h2 className="os-title">
-            <span>Centaur OS</span>
-            <em>数字员工底座</em>
-          </h2>
-          <p>
-            本地 AI 主机上的操作系统，统一管理记忆、接口、Agent 引擎和权限。
-          </p>
-          <p>
-            Builder 运行在 OS 之上，把岗位、工具和流程封装成企业自己的 AI 员工。
-          </p>
-          <div className="os-pipeline" aria-label="Centaur OS 从底层操作系统到数字员工 Builder 的能力链路">
-            <span>硬件主机</span>
-            <ArrowRight size={16} />
-            <span>Centaur OS</span>
-            <ArrowRight size={16} />
-            <span>Builder</span>
-            <ArrowRight size={16} />
-            <span>专属数字员工</span>
-          </div>
-        </div>
-
-        <div className="os-panel">
-          <div className="os-core-card">
-            <div>
-              <Cpu size={28} />
-              <strong>Centaur OS</strong>
+    <section className="section values" id="values">
+      <SectionTitle eyebrow="Two Products" title="两个方向，" highlight="一个目标">
+        要么帮企业赚钱，要么帮企业省钱。
+      </SectionTitle>
+      <div className="value-grid">
+        {valueCards.map(({ icon: Icon, eyebrow, title, highlight, text, tags }) => (
+          <article className="value-card" key={title}>
+            <div className="value-icon"><Icon size={26} /></div>
+            <span className="card-eyebrow">{eyebrow}</span>
+            <h3>{title} <em>{highlight}</em></h3>
+            <div className="card-text">
+              {text.map((line) => <p key={line}>{line}</p>)}
             </div>
-            <small>Local Digital Employee Operating System</small>
-          </div>
-          <div className="os-feature-grid">
-            {centaurOsFeatures.map(({ title, text, icon: Icon }) => (
-              <article className="os-feature-card" key={title}>
-                <Icon size={21} />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+            <div className="card-tags">
+              {tags.map((tag) => <span key={tag}>{tag}</span>)}
+            </div>
+            <a className="text-link" href="#contact">了解详情 <ArrowRight size={16} /></a>
+          </article>
+        ))}
       </div>
     </section>
   );
 }
 
-function Problems() {
+function Architecture() {
   return (
-    <section className="section problem-section">
-      <SectionHeader eyebrow="Why" title="AI 卡在" highlight="聊天框" align="center">
-        因为多数 AI 还没有进入业务流程。
-      </SectionHeader>
-      <div className="problem-grid">
-        {painPoints.map(([title, text, Icon]) => (
-          <article className="problem-card" key={title}>
-            <Icon size={22} />
+    <section className="architecture-section" id="architecture">
+      <div className="section architecture-inner">
+        <SectionTitle eyebrow="Product Architecture" title="三层架构，" highlight="一层壁垒" align="center">
+          应用层负责赚钱，CentaurOS 负责护城河，硬件负责差异化。
+        </SectionTitle>
+        <div className="stack">
+          {architecture.map(({ layer, title, desc, point, icon: Icon, featured }) => (
+            <article className={`stack-layer ${featured ? 'featured' : ''}`} key={layer}>
+              <div className="stack-icon"><Icon size={24} /></div>
+              <div>
+                <span>{layer}</span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </div>
+              <strong>{point}</strong>
+            </article>
+          ))}
+        </div>
+        <p className="architecture-summary">
+          纯软件公司抄不了，传统硬件公司做不来。
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Team() {
+  return (
+    <section className="section team" id="team">
+      <SectionTitle eyebrow="Team" title="软硬结合，" highlight="才能交付">
+        我们同时做系统、硬件和行业落地。
+      </SectionTitle>
+      <div className="team-grid">
+        {team.map(([title, text]) => (
+          <article className="team-card" key={title}>
+            <Users size={22} />
             <h3>{title}</h3>
             <p>{text}</p>
           </article>
@@ -322,150 +231,17 @@ function Problems() {
   );
 }
 
-function Workflow() {
+function Partners() {
   return (
-    <section className="section workflow-section" id="workflow">
-      <SectionHeader eyebrow="How It Works" title="不换系统，" highlight="接上流程" align="center">
-        从现有资料和工具进入，关键动作由人确认。
-      </SectionHeader>
-      <div className="workflow-map">
-        <div className="flow-column">
-          <span className="flow-label">输入</span>
-          <div className="node-grid">
-            {inputs.map(([label, Icon]) => (
-              <div className="flow-node" key={label}>
-                <Icon size={18} />
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flow-bridge">
-          <div className="flow-lines" />
-          <ArrowRight size={22} />
-        </div>
-        <div className="machine-core">
-          <img src={`${A}centaur-pro.png`} alt="半人马 AI 数字员工底层系统处理企业资料流" />
-          <h3>数字员工底座</h3>
-          <p>本地 AI 执行中枢</p>
-        </div>
-        <div className="flow-bridge">
-          <div className="flow-lines" />
-          <ArrowRight size={22} />
-        </div>
-        <div className="flow-column wide">
-          <span className="flow-label">处理与输出</span>
-          <div className="process-strip">
-            {processing.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          <div className="output-list">
-            {outputs.map((item) => (
-              <div key={item}>
-                <CircleCheck size={17} />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Roles() {
-  return (
-    <section className="section roles-section" id="roles">
-      <SectionHeader eyebrow="Capabilities" title="从回答，" highlight="到执行">
-        五个能力，组成数字员工底座。
-      </SectionHeader>
-      <div className="role-grid">
-        {capabilities.map(({ title, icon: Icon, text, sample }) => (
-          <article className="role-card" key={title}>
-            <div className="role-head">
-              <div className="role-icon"><Icon size={22} /></div>
-              <h3>{title}</h3>
-            </div>
-            <p>{text}</p>
-            <div className="mini-ui">
-              <span className="mini-dot" />
-              <strong>能力输出</strong>
-              <small>{sample}</small>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function TaxScenario() {
-  return (
-    <section className="section tax-section" id="finance">
-      <div className="tax-layout">
-        <div>
-          <SectionHeader eyebrow="Case" title="首批落地：" highlight="财税行业">
-            高频资料、客户跟进、风险提醒，已经跑通。
-          </SectionHeader>
-          <div className="scenario-grid">
-            {landingScenarios.map((item) => (
-              <div className="scenario-item" key={item}>
-                <Check size={16} />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="office-scene" aria-label="财税行业落地案例和资料流动示意">
-          <div className="scene-top">
-            <div>
-              <span>首批行业样板</span>
-              <strong>财税场景已落地</strong>
-            </div>
-            <ShieldCheck size={24} />
-          </div>
-          <div className="scene-body">
-            <div className="file-stack">
-              <span>资料</span>
-              <span>合同</span>
-              <span>Excel</span>
-              <span>客户沟通</span>
-            </div>
-            <div className="data-stream">
-              <i />
-              <i />
-              <i />
-            </div>
-            <img src={`${A}centaur-edge.png`} alt="财税行业中的半人马 AI 数字员工主机" />
-          </div>
-          <div className="scene-footer">
-            <div><Sparkles size={16} />资料流自动处理</div>
-            <div><AlertTriangle size={16} />关键事项人工确认</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Comparison() {
-  return (
-    <section className="section comparison-section">
-      <SectionHeader eyebrow="Difference" title="不是软件，" highlight="是员工" align="center">
-        软件等人操作，数字员工主动接任务。
-      </SectionHeader>
-      <div className="comparison-table">
-        <div className="table-head">
-          <span>对比项</span>
-          <strong>传统 SaaS</strong>
-          <strong>半人马 AI 数字员工系统</strong>
-        </div>
-        {saasRows.map(([label, saas, centaur]) => (
-          <div className="table-row" key={label}>
-            <span>{label}</span>
-            <p>{saas}</p>
-            <p><Check size={16} />{centaur}</p>
+    <section className="section partners">
+      <SectionTitle eyebrow="Partners" title="寻找一起做大的" highlight="合作伙伴" align="center">
+        渠道、行业、硬件、资本，都可以一起把 AI Agent 工作站推向企业。
+      </SectionTitle>
+      <div className="partner-row">
+        {partners.map((item) => (
+          <div className="partner-pill" key={item}>
+            <Handshake size={18} />
+            {item}
           </div>
         ))}
       </div>
@@ -473,62 +249,38 @@ function Comparison() {
   );
 }
 
-function Delivery() {
+function Footer() {
   return (
-    <section className="section delivery-section">
-      <SectionHeader eyebrow="Delivery" title="先上岗位，" highlight="再扩队伍">
-        从高频重复工作开始，跑通后继续扩展。
-      </SectionHeader>
-      <div className="delivery-track">
-        {delivery.map((step, index) => (
-          <div className="delivery-step" key={step}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <strong>{step}</strong>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FinalCta() {
-  return (
-    <section className="final-cta" id="demo">
-      <div className="cta-card">
-        <div>
-          <span className="eyebrow">Start</span>
-          <h2>让第一个 <em>AI 员工</em> 上岗</h2>
-          <p>
-            看看半人马 AI 如何把任务、资料、工具和人工确认接成一个可执行流程。
-          </p>
-          <div className="hero-actions">
-            <a className="btn primary" href="mailto:hello@centaur.ai?subject=预约半人马 AI 数字员工系统演示">
-              预约演示 <ArrowRight size={18} />
-            </a>
-            <a className="btn secondary" href="#roles">
-              查看核心能力
-            </a>
-          </div>
-        </div>
-        <div className="cta-visual">
-          <img src={`${A}centaur-hero.png`} alt="半人马 AI 数字员工上岗" />
-          <div>
-            <Bot size={18} />
-            候选岗位：资料整理员、客户跟进员、经营日报员
-          </div>
-        </div>
-      </div>
-      <footer>
-        <div className="brand small">
+    <footer className="footer" id="contact">
+      <div className="footer-main">
+        <div className="footer-brand">
           <img src={`${A}centaur-logo.png`} alt="半人马 AI Logo" />
-          <span>
+          <div>
             <strong>半人马 AI</strong>
-            <small>AI 数字员工底层系统</small>
-          </span>
+            <p>让每个企业拥有一台 AI Agent 工作站</p>
+          </div>
         </div>
-        <p>人负责判断与关系，AI 负责记忆与执行。</p>
-      </footer>
-    </section>
+        <div className="footer-contact">
+          <span>联系我们</span>
+          <p>合作咨询 / 投资交流</p>
+          <a href="mailto:hello@centaur-ai.com"><Mail size={16} /> hello@centaur-ai.com</a>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>© 2026 半人马 AI</span>
+        <span><ShieldCheck size={15} /> Hardware + CentaurOS</span>
+      </div>
+    </footer>
+  );
+}
+
+function SectionTitle({ eyebrow, title, highlight, children, align = 'left' }) {
+  return (
+    <div className={`section-title ${align === 'center' ? 'center' : ''}`}>
+      <span className="eyebrow">{eyebrow}</span>
+      <h2>{title}<em>{highlight}</em></h2>
+      {children && <p>{children}</p>}
+    </div>
   );
 }
 
