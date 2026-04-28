@@ -453,10 +453,6 @@ function TaxScenario() {
               </div>
             ))}
           </div>
-          <div className="landing-proof">
-            <Sparkles size={18} />
-            已与 8 亿营收广告集团达成合作意向
-          </div>
         </article>
 
         <article className="landing-custom-card">
